@@ -39,15 +39,24 @@
 ## ordersテーブル
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| postal_code        | string     | null: false                    |
-| prefecture_id      | integer    | null: false                    |
-| city               | string     | null: false                    |
-| addresses          | string     | null: false                    |
-| building           | string     |                                |
-| phone_number       | string     | null: false                    |
 | user               | references | null: false, foreign_key: true |
 | item               | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
 - belongs_to :item
+- belongs_to :delivery
+
+## deliverysテーブル
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| postal_code        | string     | null: false                    |
+| prefecture_id      | integer    | null: false                    |
+| city               | string     | null: false                    |
+| addresses          | string     | null: false                    |
+| building           | string     |                                |
+| phone_number       | string     | null: false                    |
+| order              | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :order
