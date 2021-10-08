@@ -30,7 +30,6 @@
 | prefecture_id      | integer    | null: false                   |
 | delivery_id        | integer    | null: false                   |
 | price              | integer    | null: false                   |
-| soldout_sign       | integer    | null: false, default:"0"      |
 | user               | references | null: false, foreign_key: true|
 
 ### Association
