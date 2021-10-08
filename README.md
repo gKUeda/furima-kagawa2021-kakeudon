@@ -30,8 +30,6 @@
 | prefecture_id      | integer    | null: false                   |
 | delivery_id        | integer    | null: false                   |
 | price              | integer    | null: false                   |
-| addtax_price       | integer    | null: false                   |
-| profit             | integer    | null: false                   |
 | soldout_sign       | integer    | null: false, default:"0"      |
 | user               | references | null: false, foreign_key: true|
 
@@ -44,10 +42,10 @@
 | ------------------ | ---------- | ------------------------------ |
 | postal_code        | integer    | null: false                    |
 | prefecture_id      | integer    | null: false                    |
-| city               | integer    | null: false                    |
-| addresses          | integer    | null: false                    |
-| building           | integer    |                                |
-| phone              | integer    | null: false                    |
+| city               | string     | null: false                    |
+| addresses          | string     | null: false                    |
+| building           | string     |                                |
+| phone_number       | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 | item               | references | null: false, foreign_key: true |
 
