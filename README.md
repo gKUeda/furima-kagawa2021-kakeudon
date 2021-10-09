@@ -45,7 +45,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
-- belongs_to :delivery
+- has_one :delivery
 
 ## deliverysテーブル
 | Column             | Type       | Options                        |
