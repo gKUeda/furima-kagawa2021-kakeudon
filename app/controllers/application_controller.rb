@@ -7,13 +7,13 @@ class ApplicationController < ActionController::Base
   def basic_auth
     if Rails.env.production?
       authenticate_or_request_with_http_basic do |username, password|
-        username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
+        username == ENV['BASIC_AUTH_USER'] && password == ENV['BASIC_AUTH_PASSWORD']
       end
     end
   end
-  
+
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :lastname, :firstname, :lastname_kana, :firstname_kana, :birth_date])
+    devise_parameter_sanitizer.permit(:sign_up,
+                                      keys: [:nickname, :lastname, :firstname, :lastname_kana, :firstname_kana, :birth_date])
   end
 end
-
