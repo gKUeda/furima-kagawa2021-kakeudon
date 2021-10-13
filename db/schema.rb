@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2021_10_05_042653) do
+ActiveRecord::Schema.define(version: 2021_10_10_085702) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "item_namu", null: false
+    t.string "item_name", null: false
     t.text "info", null: false
     t.integer "category_id", null: false
     t.integer "salesstatus_id", null: false
@@ -46,7 +45,5 @@ ActiveRecord::Schema.define(version: 2021_10_05_042653) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-
   add_foreign_key "items", "users"
-
 end
