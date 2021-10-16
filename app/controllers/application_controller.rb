@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :index
 
   private
 
@@ -17,4 +17,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up,
                                       keys: [:nickname, :lastname, :firstname, :lastname_kana, :firstname_kana, :birth_date])
   end
+
 end
