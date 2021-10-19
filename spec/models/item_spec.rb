@@ -53,7 +53,7 @@ RSpec.describe Item, type: :model do
       @item.prefecture_id = '0'
       @item.valid?
       expect(@item.errors.full_messages).to include("Prefecture can't be blank")
-    end    
+    end
     it '発送日までのid:1では出品できない' do
       @item.delivery_id = '1'
       @item.valid?
@@ -72,17 +72,17 @@ RSpec.describe Item, type: :model do
     it '販売価格は、¥300~¥9,999,999の間のみ保存可能であること' do
       @item.price = '100'
       @item.valid?
-      expect(@item.errors.full_messages).to include('Price is out of setting range')      
+      expect(@item.errors.full_messages).to include('Price is out of setting range')
     end
     it '販売価格は、10000000以上の値では保存できないこと' do
-    @item.price = '10000000'
-    @item.valid?
-    expect(@item.errors.full_messages).to include('Price is out of setting range')
+      @item.price = '10000000'
+      @item.valid?
+      expect(@item.errors.full_messages).to include('Price is out of setting range')
     end
     it 'userが紐づいていないと保存できない' do
-    @item.user = nil
-    @item.valid?
-    expect(@item.errors.full_messages).to include('User must exist')
+      @item.user = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include('User must exist')
     end
   end
 end
