@@ -15,8 +15,8 @@ class Item < ApplicationRecord
     validates :item_name
     validates :info
     validates :price, numericality: { with: /\A[0-9]+\z/, message: 'is invalid. Input half-width characters' }
-    validates :price, inclusion: { in: 300..9_999_999, message: 'is out of setting range' }
   end
+  validates :price, inclusion: { in: 300..9_999_999, message: 'is out of setting range' }
   validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :salesstatus_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :shippingfees_id, numericality: { other_than: 1, message: "can't be blank" }
