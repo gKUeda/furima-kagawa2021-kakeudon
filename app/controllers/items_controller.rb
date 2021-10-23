@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_item, only: [:show, :edit, :update]
   before_action :exhibitor_confirmation, only: :edit
 
   def index
@@ -20,15 +21,12 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to item_path
     else
@@ -44,8 +42,11 @@ class ItemsController < ApplicationController
                                  :delivery_id, :price, :image).merge(user_id: current_user.id)
   end
 
-  def exhibitor_confirmation
+  def set_item
     @item = Item.find(params[:id])
+  end
+
+  def exhibitor_confirmation
     unless current_user.id == @item.user_id
       redirect_to root_path  
     end
