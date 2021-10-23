@@ -30,19 +30,18 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to item_path
     else
-    render :edit
+      render :edit
     end
   end
 
   def destroy
-    item= Item.find(params[:id])
+    item = Item.find(params[:id])
     if item.destroy
       redirect_to root_path
     else
-      redirect_to root_path
+      render :show
     end
   end
-
 
   private
 
@@ -56,8 +55,6 @@ class ItemsController < ApplicationController
   end
 
   def exhibitor_confirmation
-    unless current_user.id == @item.user_id
-      redirect_to root_path  
-    end
+    redirect_to root_path unless current_user.id == @item.user_id
   end
 end
