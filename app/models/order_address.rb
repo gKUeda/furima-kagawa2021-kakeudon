@@ -7,6 +7,8 @@ class OrderAddress
     validates :postal_code, format: { with: /\A\d{3}-\d{4}\z/, message: 'is invalid. Enter it as follows (e.g. 123-4567)' }
     validates :city
     validates :addresses
+    validates :user_id
+    validates :item_id
     validates :phone_number, numericality: { with: /\A\d{10,11}\z/, message: 'is invalid. Input only number' }
   end
   validates :phone_number, length: { minimum: 9, message: 'is too short' }
