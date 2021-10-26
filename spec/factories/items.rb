@@ -13,6 +13,5 @@ FactoryBot.define do
     after(:build) do |item|
       item.image.attach(io: File.open('public/images/star.png'), filename: 'star.png')
     end
-
   end
 end
