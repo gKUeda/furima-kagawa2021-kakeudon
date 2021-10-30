@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: furima_kagawa2021_kakeudon_production
-  username: furima_kagawa2021_kakeudon
-  password: <%= ENV['FURIMA_KAGAWA2021_KAKEUDON_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
